@@ -10,9 +10,9 @@ from socket_handlers import register_handlers
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'syswatch-secret-key-change-in-prod'
 
-CORS(app, origins='*')
+CORS(app, origins=['https://syswatch-nine.vercel.app'])
 
-socketio = SocketIO(app, cors_allowed_origins='*', async_mode='eventlet')
+socketio = SocketIO(app, cors_allowed_origins=['https://syswatch-nine.vercel.app'], async_mode='eventlet')
 
 app.register_blueprint(api_blueprint)
 register_handlers(socketio)
